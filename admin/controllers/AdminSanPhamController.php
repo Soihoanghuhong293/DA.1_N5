@@ -338,7 +338,7 @@ class AdminSanPhamController
        
         $id = $_GET['id_san_pham']; 
         $sanPham = $this->modelSanPham->getDetailSanPham($id);
-        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id); // Lấy danh sách sản phẩm từ mô hình
+        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id); // Lấy danh sách sản phẩm từ mô hìnhf
 
         if ($sanPham) {
             require_once './views/sanpham/detailSanPham.php';
