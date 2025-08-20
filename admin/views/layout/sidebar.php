@@ -25,7 +25,7 @@
                with font-awesome or any other icon font library -->
 
                <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="<?= BASE_URL_ADMIN ?>" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -57,6 +57,24 @@
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Quản lý người dùng
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<?= BASE_URL_ADMIN .'?act=khach-hang' ?>" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Khách hàng
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<?= BASE_URL_ADMIN .'?act=don-hang' ?>" class="nav-link">
+              <i class="nav-icon fas fa-receipt"></i>
+              <p>
+                Đơn hàng
               </p>
             </a>
           </li>   

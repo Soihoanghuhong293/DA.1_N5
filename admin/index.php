@@ -9,22 +9,26 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 require_once './controllers/AdminDanhMucController.php';
 require_once './controllers/AdminSanPhamController.php';
 require_once './controllers/AdminTaiKhoanController.php';
+require_once './controllers/AdminDonHangController.php';
+require_once './controllers/AdminDashboardController.php';
 
 // Require toàn bộ file Models
 require_once './models/AdminDanhMuc.php';
 require_once './models/AdminSanPham.php';
 require_once './models/AdminTaiKhoan.php';
 require_once './models/AdminChucVu.php';
+require_once './models/AdminDonHang.php';
 
 
 
 // Route
-$act = $_GET['act'] ?? '/';
+$act = $_GET['act'] ?? 'dashboard';
 
 // Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
 match ($act) {
 
 // route  danh mục
+   'dashboard' => (new AdminDashboardController())->index(),
    'danh-muc' => (new AdminDanhMucController())->danhSachDanhMuc(),
    'form-them-danh-muc' => (new AdminDanhMucController())->formAddDanhMuc(),
    'them-danh-muc' => (new AdminDanhMucController())->postAddDanhMuc(),
@@ -45,12 +49,18 @@ match ($act) {
    
    // route tài khoản
    'tai-khoan' => (new AdminTaiKhoanController())->danhSachTaiKhoan(),
+   'khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
    'form-them-tai-khoan' => (new AdminTaiKhoanController())->formAddTaiKhoan(),
    'them-tai-khoan' => (new AdminTaiKhoanController())->postAddTaiKhoan(),
    'form-sua-tai-khoan' => (new AdminTaiKhoanController())->formEditTaiKhoan(),
    'sua-tai-khoan' => (new AdminTaiKhoanController())->postEditTaiKhoan(),
    'xoa-tai-khoan' => (new AdminTaiKhoanController())->deleteTaiKhoan(),
    'toggle-trang-thai-tai-khoan' => (new AdminTaiKhoanController())->toggleTrangThai(),
+
+   // route đơn hàng
+   'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
+   'chi-tiet-don-hang' => (new AdminDonHangController())->chiTietDonHang(),
+   'cap-nhat-trang-thai-don-hang' => (new AdminDonHangController())->capNhatTrangThai(),
    
    default => (new AdminDanhMucController())->danhSachDanhMuc()
 };

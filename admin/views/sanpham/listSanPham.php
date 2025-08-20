@@ -55,9 +55,11 @@
                       <td><?= $key + 1 ?></td>
                       <td><?= $sanPham['ten_san_pham'] ?></td>
                       <td>
-                        <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" style="width: 100px" alt=""
-                          onerror="this.onerror=null; this.src='https://gomhang.vn/wp-content/uploads/2024/09/Op-lung-trong-suot-chong-soc-1-1.jpg'">
-
+                        <?php if (!empty($sanPham['hinh_anh'])): ?>
+                          <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" style="width: 100px" alt="Ảnh sản phẩm" onerror="this.onerror=null; this.replaceWith(document.createTextNode('Không có ảnh'));">
+                        <?php else: ?>
+                          <span class="text-muted">Không có ảnh</span>
+                        <?php endif; ?>
                       </td>
                       <td><?= $sanPham['gia_san_pham'] ?></td>
                       <td><?= $sanPham['so_luong'] ?></td>

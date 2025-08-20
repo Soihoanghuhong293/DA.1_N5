@@ -25,9 +25,28 @@ function connectDB() {
 
 //thêm file
 function uploadFile($file, $folderUpload) {
-    $pathStorage = $folderUpload . time() . $file['name'];
+    $folder = rtrim($folderUpload, "/\\") . "/";
+    $originalName = basename($file['name']);
+    $safeName = preg_replace('/[^A-Za-z0-9._-]/', '-', $originalName);
+    // Bỏ tiền tố 'uploads' nếu vô tình dính trong tên file
+    $safeName = preg_replace('/^uploads[-_]?/i', '', $safeName);
 
     $from = $file['tmp_name'];
+
+    // Chống trùng: so sánh hash với mọi file trong thư mục
+    $absFolder = PATH_ROOT . $folder;
+    if (is_dir($absFolder)) {
+        $hash = @sha1_file($from);
+        if ($hash) {
+            foreach (glob($absFolder . '*') as $existing) {
+                if (is_file($existing) && @sha1_file($existing) === $hash) {
+                    return str_replace(PATH_ROOT, '', $existing);
+                }
+            }
+        }
+    }
+
+    $pathStorage = $folder . time() . '-' . $safeName;
     $to = PATH_ROOT . $pathStorage;
 
     if (move_uploaded_file($from, $to)) {
@@ -53,9 +72,28 @@ function deleteSessionError() {
 }
 // upload  = update ablum ảnh
 function uploadFileAlbum($file, $folderUpload , $key) {
-    $pathStorage = $folderUpload . time() . $file['name'][$key];
+    $folder = rtrim($folderUpload, "/\\") . "/";
+    $originalName = basename($file['name'][$key]);
+    $safeName = preg_replace('/[^A-Za-z0-9._-]/', '-', $originalName);
+    // Bỏ tiền tố 'uploads' nếu vô tình dính trong tên file
+    $safeName = preg_replace('/^uploads[-_]?/i', '', $safeName);
 
     $from = $file['tmp_name'][$key];
+
+    // Chống trùng: so sánh hash với mọi file trong thư mục
+    $absFolder = PATH_ROOT . $folder;
+    if (is_dir($absFolder)) {
+        $hash = @sha1_file($from);
+        if ($hash) {
+            foreach (glob($absFolder . '*') as $existing) {
+                if (is_file($existing) && @sha1_file($existing) === $hash) {
+                    return str_replace(PATH_ROOT, '', $existing);
+                }
+            }
+        }
+    }
+
+    $pathStorage = $folder . time() . '-' . $safeName;
     $to = PATH_ROOT . $pathStorage;
 
     if (move_uploaded_file($from, $to)) {

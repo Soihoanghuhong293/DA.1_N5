@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 20, 2025 lúc 05:37 AM
+-- Thời gian đã tạo: Th8 20, 2025 lúc 09:03 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -74,6 +74,16 @@ CREATE TABLE `chuc_vus` (
   `id` int(11) NOT NULL,
   `ten_chuc_vu` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `chuc_vus`
+--
+
+INSERT INTO `chuc_vus` (`id`, `ten_chuc_vu`) VALUES
+(1, 'Admin'),
+(2, 'Quản lý'),
+(3, 'Nhân viên bán hàng'),
+(4, 'Khách hàng');
 
 -- --------------------------------------------------------
 
@@ -178,16 +188,16 @@ CREATE TABLE `san_phams` (
 --
 
 INSERT INTO `san_phams` (`id`, `ten_san_pham`, `gia_san_pham`, `gia_khuyen_mai`, `hinh_anh`, `so_luong`, `luot_xem`, `ngay_nhap`, `mo_ta`, `danh_muc_id`, `trang_thai`) VALUES
-(35, 'Bộ quần áo sơ sinh cotton 100%', 150000.00, 120000.00, './uploads1755660867uploads1755242410ao-choang-chong-nang-tai-tho-lulaby-hong.jpg', 50, 0, '2024-01-15', 'Bộ quần áo sơ sinh chất liệu cotton 100% mềm mại', 16, 1),
-(36, 'Mũ len mùa đông cho bé', 80000.00, 65000.00, NULL, 30, 0, '2024-01-10', 'Mũ len ấm áp, thiết kế dễ thương với tai thỏ', 16, 1),
-(37, 'Bình sữa chống sặc', 180000.00, 150000.00, NULL, 25, 0, '2024-01-18', 'Bình sữa 150ml với núm ti chống sặc', 17, 1),
-(38, 'Tã bỉm siêu thấm', 280000.00, 220000.00, NULL, 40, 0, '2024-01-14', 'Tã bỉm size M (6-11kg), siêu thấm hút', 17, 1),
-(39, 'Xe tập đi đa năng', 350000.00, 290000.00, NULL, 20, 0, '2024-01-19', 'Xe tập đi có nhạc, đèn LED, nhiều chức năng', 18, 1),
-(40, 'Sách vải tương tác', 85000.00, 68000.00, NULL, 45, 0, '2024-01-11', 'Sách vải có nhiều chi tiết tương tác', 18, 1),
-(41, 'Bộ bát thìa tập ăn', 95000.00, 75000.00, NULL, 40, 0, '2024-01-21', 'Bộ bát thìa nhựa an toàn, thiết kế dễ cầm', 19, 1),
-(42, 'Cốc tập uống 360°', 110000.00, 88000.00, NULL, 35, 0, '2024-01-23', 'Cốc tập uống không đổ, thiết kế 360 độ', 19, 1),
-(43, 'Chăn mền cotton mềm', 180000.00, 145000.00, NULL, 25, 0, '2024-01-26', 'Chăn mền cotton 100% mềm mại, ấm áp', 20, 1),
-(44, 'Gối chống méo đầu', 120000.00, 96000.00, NULL, 30, 0, '2024-01-27', 'Gối chống méo đầu thiết kế đặc biệt', 20, 1);
+(35, 'Bộ quần áo sơ sinh cotton 100%', 150000.00, 120000.00, './uploads/4.jpg', 50, 0, '2024-01-15', 'Bộ quần áo sơ sinh chất liệu cotton 100% mềm mại', 16, 1),
+(36, 'Mũ len mùa đông cho bé', 80000.00, 65000.00, './uploads/3.png', 30, 0, '2024-01-10', 'Mũ len ấm áp, thiết kế dễ thương với tai thỏ', 16, 1),
+(37, 'Bình sữa chống sặc', 180000.00, 150000.00, './uploads/1.jpg', 25, 0, '2024-01-18', 'Bình sữa 150ml với núm ti chống sặc', 16, 1),
+(38, 'Tã bỉm siêu thấm', 280000.00, 220000.00, './uploads/5.jpg', 40, 0, '2024-01-14', 'Tã bỉm size M (6-11kg), siêu thấm hút', 16, 1),
+(39, 'Xe tập đi đa năng', 350000.00, 290000.00, './uploads/7.jpg', 20, 0, '2024-01-19', 'Xe tập đi có nhạc, đèn LED, nhiều chức năng', 16, 1),
+(40, 'Sách vải tương tác', 85000.00, 68000.00, './uploads/7.jpg', 45, 0, '2024-01-11', 'Sách vải có nhiều chi tiết tương tác', 16, 1),
+(41, 'Bộ bát thìa tập ăn', 95000.00, 75000.00, './uploads/5.jpg', 40, 0, '2024-01-21', 'Bộ bát thìa nhựa an toàn, thiết kế dễ cầm', 16, 1),
+(42, 'Cốc tập uống 360°', 110000.00, 88000.00, './uploads/2.jpg', 35, 0, '2024-01-23', 'Cốc tập uống không đổ, thiết kế 360 độ', 16, 1),
+(43, 'Chăn mền cotton mềm', 180000.00, 145000.00, './uploads/6.jpg', 25, 0, '2024-01-26', 'Chăn mền cotton 100% mềm mại, ấm áp', 16, 1),
+(44, 'Gối chống méo đầu', 120000.00, 96000.00, './uploads/5.jpg', 30, 0, '2024-01-27', 'Gối chống méo đầu thiết kế đặc biệt', 16, 1);
 
 -- --------------------------------------------------------
 
@@ -208,6 +218,16 @@ CREATE TABLE `tai_khoans` (
   `chuc_vu_id` int(11) NOT NULL,
   `trang_thai` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tai_khoans`
+--
+
+INSERT INTO `tai_khoans` (`id`, `ho_ten`, `anh_dai_dien`, `ngay_sinh`, `email`, `so_dien_thoai`, `gioi_tinh`, `dia_chi`, `mat_khau`, `chuc_vu_id`, `trang_thai`) VALUES
+(1, 'Admin LUCK5', NULL, '1990-01-01', 'admin@luck5.com', '0123456789', 1, 'Hà Nội, Việt Nam', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 1, 1),
+(2, 'Nguyễn Văn A', NULL, '1995-05-15', 'nguyenvana@gmail.com', '0987654321', 1, 'TP.HCM, Việt Nam', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 2, 1),
+(3, 'Trần Thị B', NULL, '1992-08-20', 'tranthib@gmail.com', '0369852147', 0, 'Đà Nẵng, Việt Nam', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 3, 1),
+(4, 'nhatduong', '', '0000-00-00', 'duonggghaha@gmail.com', '0384390600', 1, '', '$2y$10$LIo4BsyogAmgk9ktChjSA.WQU0/j6EjDZCV0GpoTGQc82EtAeQ0sW', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -323,7 +343,7 @@ ALTER TABLE `chi_tiet_gio_hangs`
 -- AUTO_INCREMENT cho bảng `chuc_vus`
 --
 ALTER TABLE `chuc_vus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `danh_mucs`
@@ -365,7 +385,7 @@ ALTER TABLE `san_phams`
 -- AUTO_INCREMENT cho bảng `tai_khoans`
 --
 ALTER TABLE `tai_khoans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `trang_thai_don_hangs`
