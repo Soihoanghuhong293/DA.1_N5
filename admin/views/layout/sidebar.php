@@ -45,9 +45,18 @@
 
            <li class="nav-item">
             <a href="<?= BASE_URL_ADMIN .'?act=san-pham' ?>" class="nav-link">
-              <i class="nav-icon fas fa-mobile"></i>
+              <i class="nav-icon fas fa-baby"></i>
               <p>
                 Sản phẩm
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="<?= BASE_URL_ADMIN .'?act=tai-khoan' ?>" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Quản lý người dùng
               </p>
             </a>
           </li>   

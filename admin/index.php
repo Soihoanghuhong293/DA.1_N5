@@ -8,10 +8,13 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 // Require toàn bộ file Controllers
 require_once './controllers/AdminDanhMucController.php';
 require_once './controllers/AdminSanPhamController.php';
+require_once './controllers/AdminTaiKhoanController.php';
 
 // Require toàn bộ file Models
 require_once './models/AdminDanhMuc.php';
 require_once './models/AdminSanPham.php';
+require_once './models/AdminTaiKhoan.php';
+require_once './models/AdminChucVu.php';
 
 
 
@@ -40,4 +43,14 @@ match ($act) {
    'xoa-san-pham' => (new AdminSanPhamController())->deleteSanPham(),
    'chi-tiet-san-pham' => (new AdminSanPhamController())->detaiSanPham(),
    
+   // route tài khoản
+   'tai-khoan' => (new AdminTaiKhoanController())->danhSachTaiKhoan(),
+   'form-them-tai-khoan' => (new AdminTaiKhoanController())->formAddTaiKhoan(),
+   'them-tai-khoan' => (new AdminTaiKhoanController())->postAddTaiKhoan(),
+   'form-sua-tai-khoan' => (new AdminTaiKhoanController())->formEditTaiKhoan(),
+   'sua-tai-khoan' => (new AdminTaiKhoanController())->postEditTaiKhoan(),
+   'xoa-tai-khoan' => (new AdminTaiKhoanController())->deleteTaiKhoan(),
+   'toggle-trang-thai-tai-khoan' => (new AdminTaiKhoanController())->toggleTrangThai(),
+   
+   default => (new AdminDanhMucController())->danhSachDanhMuc()
 };

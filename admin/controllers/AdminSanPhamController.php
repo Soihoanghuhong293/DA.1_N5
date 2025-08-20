@@ -281,7 +281,7 @@ class AdminSanPhamController
             //lưu ảnh mới vào db và xoá ảnh cũ nếu có
             foreach ($upload_files as $file_info) {
                 if ($file_info['id']) {
-                    $old_file = $this->modelSanPham->getDetailAnhSanPham($file_info['id'])['link_hinh_anh'];
+                    $old_file = $this->modelSanPham->getDetailAnhSanPham($file_info['id'])['duong_dan_anh'];
 
                     // cập nhập ảnh cũ
                     $this->modelSanPham->updateAnhSanPham($file_info['id'], $file_info['file']);
@@ -301,7 +301,7 @@ class AdminSanPhamController
                     // xoá ảnh trong db
                     $this->modelSanPham->destroyAnhSanPham($anh_id);
                     // xoá file ảnh
-                    deleteFile($anhSP['link_hinh_anh']);
+                    deleteFile($anhSP['duong_dan_anh']);
                 }
             }
             header('Location: ' . BASE_URL_ADMIN . '?act=form-sua-san-pham&id_san_pham=' . $san_pham_id);
@@ -322,7 +322,7 @@ class AdminSanPhamController
         }
         if ($listAnhSanPham) {
             foreach($listAnhSanPham as $key=>$anhSP){
-                deleteFile($anhSP['link_hinh_anh']);
+                deleteFile($anhSP['duong_dan_anh']);
                 $this->modelSanPham->destroyAnhSanPham($anhSP['id']);
 
             }
