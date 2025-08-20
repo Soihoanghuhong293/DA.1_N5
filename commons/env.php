@@ -2,8 +2,8 @@
 
 // Biến môi trường, dùng chung toàn hệ thống
 // Khai báo dưới dạng HẰNG SỐ để không phải dùng $GLOBALS
-define('BASE_URL', 'http://localhost/DuAN1/');
-define('BASE_URL_ADMIN', 'http://localhost/DuAN1/admin/');
+define('BASE_URL', 'http://localhost/DA.1_N5/');
+define('BASE_URL_ADMIN', 'http://localhost/DA.1_N5/admin/');
 
 
 //define('BASE_URL'       , 'http://localhost:8001/');

@@ -54,7 +54,7 @@ class AdminSanPham
     public function insertAlbumAnhSanPham($san_pham_id, $link_hinh_anh)
     {
         try {
-            $sql = 'INSERT INTO hinh_anh_san_phams (san_pham_id, link_hinh_anh)
+            $sql = 'INSERT INTO album_anh_san_pham (id_san_pham, duong_dan_anh)
             VALUES (:san_pham_id, :link_hinh_anh)';
 
             $stmt = $this->conn->prepare($sql);
@@ -89,7 +89,7 @@ class AdminSanPham
     public function getListAnhSanPham($id)
     {
         try {
-            $sql = 'SELECT * FROM hinh_anh_san_phams WHERE san_pham_id = :id ';
+            $sql = 'SELECT * FROM album_anh_san_pham WHERE id_san_pham = :id ';
 
             $stmt = $this->conn->prepare($sql);
 
@@ -142,7 +142,7 @@ class AdminSanPham
     public function getDetailAnhSanPham($id)
     {
         try {
-            $sql = 'SELECT * FROM hinh_anh_san_phams WHERE id= :id';
+            $sql = 'SELECT * FROM album_anh_san_pham WHERE id= :id';
 
             $stmt = $this->conn->prepare($sql);
 
@@ -155,12 +155,12 @@ class AdminSanPham
     }
 
 
-    public function updateAnhSanPham($id, $new_file,)
+    public function updateAnhSanPham($id, $new_file)
     {
         try {
-            $sql = 'UPDATE hinh_anh_san_phams
+            $sql = 'UPDATE album_anh_san_pham
             SET 
-                link_hinh_anh = :new_file,    
+                duong_dan_anh = :new_file    
             WHERE id = :id';
 
             $stmt = $this->conn->prepare($sql);
@@ -180,7 +180,7 @@ class AdminSanPham
     public function destroyAnhSanPham($id)
     {
         try {
-            $sql = 'DELETE FROM hinh_anh_san_phams WHERE id = :id';
+            $sql = 'DELETE FROM album_anh_san_pham WHERE id = :id';
 
             $stmt = $this->conn->prepare($sql);
 
