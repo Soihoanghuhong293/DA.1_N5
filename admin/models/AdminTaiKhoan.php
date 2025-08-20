@@ -25,6 +25,22 @@ class AdminTaiKhoan
         }
     }
 
+    public function getAllKhachHang()
+    {
+        try {
+            $sql = "SELECT tai_khoans.*, chuc_vus.ten_chuc_vu 
+                    FROM tai_khoans 
+                    INNER JOIN chuc_vus ON tai_khoans.chuc_vu_id = chuc_vus.id
+                    WHERE tai_khoans.chuc_vu_id = 4
+                    ORDER BY tai_khoans.id DESC";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
+        }
+    }
+
     public function insertTaiKhoan($ho_ten, $anh_dai_dien, $ngay_sinh, $email, $so_dien_thoai, $gioi_tinh, $dia_chi, $mat_khau, $chuc_vu_id)
     {
         try {

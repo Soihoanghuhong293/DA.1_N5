@@ -16,6 +16,12 @@ class AdminTaiKhoanController
         require_once './views/taikhoan/listTaiKhoan.php';
     }
 
+    public function danhSachKhachHang()
+    {
+        $listTaiKhoan = $this->modelTaiKhoan->getAllKhachHang();
+        require_once './views/taikhoan/listKhachHang.php';
+    }
+
     public function formAddTaiKhoan()
     {
         $listChucVu = $this->modelChucVu->getAllChucVu();
