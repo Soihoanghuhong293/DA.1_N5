@@ -11,6 +11,8 @@ session_start();
 require_once './controllers/HomeController.php';
 require_once './controllers/AuthController.php';
 require_once './controllers/CartController.php';
+require_once './controllers/ThanhToanController.php'; // 👉 thêm dòng này
+
 
 // Require toàn bộ file Models
 require_once './models/Student.php';
@@ -59,5 +61,8 @@ match ($act) {
     'xoa-khoi-gio'     => (new CartController())->remove(),
     'thanh-toan'       => (new CartController())->checkout(),
     'don-hang-cua-toi' => (new CartController())->myOrders(),
+    'thanh-toan' => (new ThanhToanController())->index(),
+    'xu-ly-thanh-toan' => (new ThanhToanController())->datHang(),
+    'vnpay_return' => (new ThanhToanController())->vnpayReturn(),
 };
 

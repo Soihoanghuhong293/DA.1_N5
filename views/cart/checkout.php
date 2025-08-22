@@ -45,8 +45,10 @@
           <div class="col-6">
             <label class="form-label">Phương thức thanh toán</label>
             <select name="phuong_thuc_thanh_toan_id" class="form-select">
-              <option value="1">Thanh toán khi nhận hàng (COD)</option>
-            </select>
+  <option value="1">Thanh toán khi nhận hàng (COD)</option>
+  <option value="2">Thanh toán qua VNPay</option>
+  <option value="3">Thanh toán qua Momo</option>
+</select>
           </div>
           <div class="col-12">
             <label class="form-label">Địa chỉ nhận hàng</label>

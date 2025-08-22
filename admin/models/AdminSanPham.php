@@ -210,4 +210,7 @@ class AdminSanPham
             echo "lỗi" . $e->getMessage();
         }
     }
+
+    // binh luah
+  //  public function getBinhLuanFromKhachHang($id)
 }
